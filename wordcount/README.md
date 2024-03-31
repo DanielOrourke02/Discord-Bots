@@ -2,11 +2,13 @@
 
 This bot doesn't log peoples wordcount but lets people ENTER their wordcount via
 
-`/wordcount count:x}`
+`/wordcount count:x`
 
 The wordcount will then be stored in wordcount.json along with the authors ID.
 
 The purpose of this bot is to log peoples word count, their total word count and the servers total word count. It was made for a user who owns a discord server full of writers.
+
+In the end, its a simple bot that can interact with a database, (remove, add, reset). You can adapt this code to make it into something else of course.
 
 # Command List
 
