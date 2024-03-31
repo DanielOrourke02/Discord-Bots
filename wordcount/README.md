@@ -18,4 +18,17 @@ The purpose of this bot is to log peoples word count, their total word count and
 
 `/leaderboard` - Outputs the TOP 10 users with the highest word count
 
-`/`
+`/reset` - Acts as a safetey measure incase the owner accidentaly runs this
+
+`/reset_confirm` - This command actualy resets the wordcount
+
+`/setwordc user:@example count:x` - Sets a users wordcount to x
+
+# Duration to program
+
+At my speed it was 1h and 30m or 2h
+
+# Price
+
+I did it for £5, but I got a £2 tip. (I am much more exspensive now)
+
