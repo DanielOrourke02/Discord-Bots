@@ -17,10 +17,10 @@
 </p>
 
 <div align="center">
-  <img src="images/Visual_Studio_Icon_2019.svg.png" width="48" height="48" alt="Visual Studio" />
-  <img src="images/python.png" alt="Python" />
-  <img src="images/html.png" alt="HTML" />
-  <img src="images/css.png" alt="CSS" />
-  <img src="images/C++.png" alt="C++" />
-  <img src="images/linux.png" alt="Linux" />
+  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/Visual_Studio_Icon_2019.svg.png" width="48" height="48" alt="Visual Studio" />
+  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/python.png" alt="Python" />
+  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/html.png" alt="HTML" />
+  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/css.png" alt="CSS" />
+  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/C%2B%2B.png" alt="C++" />
+  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/linux.png" alt="Linux" />
 </div>
