@@ -16,4 +16,6 @@ The purpose of this bot is to log peoples word count, their total word count and
 
 `/servertotal` - Get the TOTAL wordcount of the guild (all the saved wordcounts added together)
 
-`
+`/leaderboard` - Outputs the TOP 10 users with the highest word count
+
+`/`
