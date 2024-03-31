@@ -16,6 +16,12 @@ All projects are open source, feel free to do what you want. My code is your cod
 
 All projects I have made all have lots of documentation and a detailed explanation of what its purpose is, who I programmed it for, the time it took to program and how much I got paid.
 
+# Why I did it in Python
+
+I don't know any other languages that discord bots are often programmed in with lots of documentation. I didn'twant to learn JS just to make discord bots so I stuck with python and perfected my bot making and designing skills.
+
+I have seen some discord bot libraries in C++, but they have little to no documentation and I didn't see any big advantage by making bots in C++ rather than python. (unless someone wants a reasource intensive bot)
+
 # Join the discord or DM me
 
 <h3 align="left">Connect with me:</h3>
