@@ -1,4 +1,5 @@
 # Wordcount Bot
+## Programmed and tested on 3.12.2 - 28/3/24
 
 This bot doesn't log peoples wordcount but lets people ENTER their wordcount via
 
