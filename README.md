@@ -8,7 +8,15 @@
 
 👨‍💻 All of my projects are available at [My Github](https://github.com/DanielJones02)
 
+# All of my bots
 
+This is a small archive of all of the discord bots I have programmed for people (I got paid). I made this archive to prove my skills as a discord developer.
+
+All projects are open source, feel free to do what you want. My code is your code. (but dont be a skid, please credit me, thank you)
+
+All projects I have made all have lots of documentation and a detailed explanation of what its purpose is, who I programmed it for, the time it took to program and how much I got paid.
+
+# Join the discord or DM me
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
