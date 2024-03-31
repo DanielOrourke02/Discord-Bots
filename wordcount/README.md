@@ -14,4 +14,6 @@ The purpose of this bot is to log peoples word count, their total word count and
 
 `/getwordc` - Get your current wordcount along with your TOTAL wordcount
 
+`/servertotal` - Get the TOTAL wordcount of the guild (all the saved wordcounts added together)
+
 `
