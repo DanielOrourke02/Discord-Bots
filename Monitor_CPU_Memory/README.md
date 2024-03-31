@@ -6,6 +6,10 @@ Because this is such a simple script I did the work for free, I would have used 
 
 `ping` - Check if the bot is online
 
+`help` - Lists commands
+
+`usage` - Outputs the CPU and MEMORY Usage (Percentage)
+
 # Join the discord or DM me
 
 <h3 align="left">Connect with me:</h3>
