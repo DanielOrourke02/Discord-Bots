@@ -10,8 +10,6 @@ with open('config.json', 'r') as config_file:
 # Load variables from config.json
 token = config.get("BOT_TOKEN")
 prefix = config.get("PREFIX")
-author_enabled = config.get("ENABLE_AUTHOR")  # this is "true"
-author = config.get("AUTHOR")  # if author_enabled is "true" then the footer will be added
 
 bot = commands.Bot(command_prefix=prefix, intents=discord.Intents.all(), help_command=None)
 
@@ -28,9 +26,8 @@ async def help(ctx):
     embed.add_field(name=f"{prefix}help", value="Shows this message", inline=False)
     embed.add_field(name=f"{prefix}ping", value="Shows bot latency", inline=False)
     embed.add_field(name=f"{prefix}usage", value="Shows system CPU and memory usage", inline=False)
-
-    if author_enabled.lower() == "true":
-        embed.set_footer(text=f"Made by {author}")
+    
+    embed.set_footer(text=f"Made by mal023")
 
     await ctx.send(embed=embed)
 
@@ -41,8 +38,7 @@ async def ping(ctx):
     latency = bot.latency * 1000  # Convert to milliseconds
     embed = discord.Embed(title="Pong! 🏓", description=f"Latency: {latency:.2f}ms", color=0x00FFFF)  # Cyan color
 
-    if author_enabled.lower() == "true":
-        embed.set_footer(text=f"Made by {author}")
+    embed.set_footer(text=f"Made by mal023")
 
     await ctx.send(embed=embed)
 
@@ -58,8 +54,7 @@ async def usage(ctx):
     embed.add_field(name="Memory Usage", value=f"Total: {humanize_bytes(memory.total)}, "
                                                 f"Available: {humanize_bytes(memory.available)}", inline=False)
 
-    if author_enabled.lower() == "true":
-        embed.set_footer(text=f"Made by {author}")
+    embed.set_footer(text=f"Made by mal023")
 
     await ctx.send(embed=embed)
 
