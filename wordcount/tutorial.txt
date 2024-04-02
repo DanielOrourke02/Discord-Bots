@@ -12,7 +12,7 @@ Once finished installing these 2 critical components locate the folder containin
 all the project files (main.py, run.bat, config.json etc)
 
 (4)
-In an editor (notepad, notepad++, vscode, doesnt matter)
+In an editor (notepad, notepad++, vscode, doesnt matter) open config.json
 Put your bot token in where it says 'YOUR_BOT_TOKEN'
 And configure the bot how you want
 
