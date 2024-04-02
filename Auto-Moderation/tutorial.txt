@@ -1,0 +1,25 @@
+(1)
+Install python 3.12. Install it through the Microsoft store 
+find the link to the page here: https://www.microsoft.com/store/productId/9NCVDN91XZQP?ocid=pdpshare
+
+(2)
+Install git, this is required for installing the requirements for the bot (libraries whatnot)
+Installation link here: https://git-scm.com/download/win
+Download the version for you then follow the installation (click install, uncheck 'release notes', then click finish)
+
+(3)
+Once finished installing these 2 critical components locate the folder containing
+all the project files (main.py, run.bat, config.json etc)
+
+(4)
+In an editor (notepad, notepad++, vscode, doesnt matter) open config.json
+Put your bot token in where it says 'YOUR_BOT_TOKEN'
+And configure the bot how you want
+
+You can get your bot token from: https://discord.com/developers/applications
+
+(5)
+Execute run.bat by double clicking it
+
+
+If you run into an error just ask mal023, i'm happy to help.
