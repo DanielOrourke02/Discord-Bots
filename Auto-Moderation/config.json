@@ -1,0 +1,9 @@
+{
+    "IGNORE_THIS_MESSAGE": "Program is most suited for python 3.12.2, please refrain updating python to newer versions as it could break the program. (it COULD)",
+    
+    "BOT_TOKEN": "YOUR_BOT_TOKEN",
+
+    "LINK_BAN": "true",
+
+    "NOTE3": "If any issues arrise, send a message to mal023"
+}
