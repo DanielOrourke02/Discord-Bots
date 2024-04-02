@@ -1,5 +1,7 @@
 # Discord Bot that monitors the CPU and MEMROY usage (percentage)
 
+## Programmed and tested on 3.12.2 - 02/4/24
+
 Slash command based bot that has simple features to auto moderatate servers. 
 
 # Main functions
@@ -17,6 +19,14 @@ The 2 main functions are:
 `help` - Lists commands
 
 `dis_automoderation` - Disables/Enables auto moderation
+
+# Duration to program
+
+15-30 minutes
+
+# Price
+
+Didn't program this for anyone, just a bot I decided to make to showcase my skills
 
 # Join the discord or DM me
 
