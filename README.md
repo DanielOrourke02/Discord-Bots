@@ -22,6 +22,12 @@ I don't know any other languages that discord bots are often programmed in with 
 
 I have seen some discord bot libraries in C++, but they have little to no documentation and I didn't see any big advantage by making bots in C++ rather than python. (unless someone wants a reasource intensive bot)
 
+# List of projects
+
+- [Auto-Moderation](https://github.com/DanielJones02/Discord-Bots/tree/main/Auto-Moderation)
+- [Monitor CPU & Memory](https://github.com/DanielJones02/Discord-Bots/tree/main/Monitor_CPU_Memory)
+- [Word Counter (involves database)](https://github.com/DanielJones02/Discord-Bots/tree/main/wordcount)
+
 # Join the discord or DM me
 
 <h3 align="left">Connect with me:</h3>
