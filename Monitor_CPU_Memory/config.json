@@ -1,8 +1,5 @@
 {
     "BOT_TOKEN": "YOUR_BOT_TOKEN_HERE",
 
-    "PREFIX": "!",
-
-    "ENABLE_AUTHOR": "true",
-    "AUTHOR": "mal023"
+    "PREFIX": "!"
 }
