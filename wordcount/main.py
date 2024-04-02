@@ -35,10 +35,8 @@ with open('config.json', 'r') as file:
 
 # Accessing individual values from the config
 bot_token = config["BOT_TOKEN"]
-author = config["AUTHOR"]
 max_wordcount = config["MAX_WORDCOUNT"]
 status = config["STATUS"]
-footer_status = config["AUTHOR_FOOTER"]
 
 # Load word count data from JSON file
 def load_wordcount_data():
@@ -153,8 +151,8 @@ async def wordcount_command(interaction: discord.Interaction, count: int):
                         f"Your total word count is {user_total}.\n",
             color=discord.Colour.blue()
         )
-    if footer_status == 'true':
-        confirmation_embed.set_footer(text=f"Made by {author}")
+        
+    embed.set_footer(text=f"Made by mal023")
 
     # Send the confirmation message as an ephemeral response
     await interaction.response.send_message(embed=confirmation_embed)
@@ -175,9 +173,7 @@ async def servertotal_command(interaction: discord.Interaction):
         color=discord.Colour.blue()
     )
 
-    # Set footer
-    if footer_status == 'true':
-        embed.set_footer(text=f"Made by {author}")
+    embed.set_footer(text=f"Made by mal023")
 
     # Send the embed message
     await interaction.response.send_message(embed=embed)
@@ -207,8 +203,7 @@ async def leaderboard_command(interaction: discord.Interaction):
         else:
             leaderboard_embed.add_field(name=f"{index}. Unknown User ({user_id})", value=f"{word_count} words", inline=False)
             
-    if footer_status == 'true':
-        leaderboard_embed.set_footer(text=f"Made by {author}")
+    embed.set_footer(text=f"Made by mal023")
 
     # Send the leaderboard message as an ephemeral response
     await interaction.response.send_message(embed=leaderboard_embed)
@@ -244,8 +239,7 @@ async def getwordc_command(interaction: discord.Interaction, user: discord.User 
         color=discord.Colour.blue()
     )
 
-    if footer_status == 'true':
-        wordcount_embed.set_footer(text=f"Made by {author}")
+    embed.set_footer(text=f"Made by mal023")
 
     # Send the message with the user's word count as an ephemeral response
     await interaction.response.send_message(embed=wordcount_embed)
@@ -268,8 +262,8 @@ async def reset(interaction: discord.Interaction):
         description=message,
         color=discord.Colour.blue()
     )
-    if footer_status == 'true':
-        reset_embed.set_footer(text=f"Made by {author}")
+    
+    embed.set_footer(text=f"Made by mal023")
 
     # Send the message as an ephemeral response
     await interaction.response.send_message(embed=reset_embed, ephemeral=True)
@@ -293,9 +287,8 @@ async def reset_confirm(interaction: discord.Interaction):
         description=message,
         color=discord.Colour.blue()
     )
-    if footer_status == 'true':
-        # Add the "Made by larryhiatus" message at the bottom
-        reset_confirm_embed.set_footer(text=f"Made by {author}")
+    
+    embed.set_footer(text=f"Made by mal023")
 
     # Send the message as an ephemeral response
     await interaction.response.send_message(embed=reset_confirm_embed)
@@ -331,9 +324,7 @@ async def setwordc_command(interaction: discord.Interaction, user: discord.User 
                 color=discord.Colour.blue()
             )
 
-    if footer_status == 'true':
-        # Add the "Made by larryhiatus" message at the bottom
-        message.set_footer(text=f"Made by {author}")
+    embed.set_footer(text=f"Made by mal023")
     
     # Send the message as an ephemeral response
     await interaction.response.send_message(embed=message)
