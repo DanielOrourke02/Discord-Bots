@@ -130,3 +130,5 @@ async def dis_automoderation(interaction: discord.Interaction):
 
     # Send the help message as an ephemeral response
     await interaction.response.send_message(embed=embed)
+
+bot.run(bot_token)
