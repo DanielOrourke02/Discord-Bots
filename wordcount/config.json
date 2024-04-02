@@ -2,11 +2,6 @@
     "IGNORE_THIS_MESSAGE": "Program is most suited for python 3.12.2, please refrain updating python to newer versions as it could break the program. (it COULD)",
     
     "BOT_TOKEN": "YOUR_BOT_TOKEN",
-    
-    "NOTE": "This is enables/disables the 'Made by ...' message, to enable set it to true",
-    "AUTHOR_FOOTER": "false",
-
-    "AUTHOR": "mal023",
 
     "MAX_WORDCOUNT": 1000000,
 
