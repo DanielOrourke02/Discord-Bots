@@ -99,7 +99,7 @@ async def help_command(interaction: discord.Interaction):
     commands_list = [
         {"name": "help", "description": "Sends this message"},
         {"name": "ping", "description": "Ping the bot, test if its online"},
-        {"name": "dis_automod", "description": "Disables auto-moderation"},
+        {"name": "dis_automod", "description": "Disables/Enables auto-moderation"},
         # Add more commands as needed with their descriptions
     ]
 
