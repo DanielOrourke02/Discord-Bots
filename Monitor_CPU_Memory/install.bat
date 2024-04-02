@@ -1,3 +1,4 @@
 @echo off
-pip install -r requirements.txt
+pip install git+https://github.com/Rapptz/discord.py
+pip isntall psutil
 pause
