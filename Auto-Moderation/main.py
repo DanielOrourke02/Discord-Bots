@@ -115,18 +115,29 @@ async def help_command(interaction: discord.Interaction):
 
 @bot.tree.command(name="dis_automod")
 async def dis_automoderation(interaction: discord.Interaction):
+    global link_ban
     if link_ban == "true":
-         # Construct the help message as an embed
-        embed = discord.Embed(title="Disabled Automoderation", color=discord.Colour.blue())
-        embed.add_field(name="Disabled Automoderation", value=f"Automoderation (blocks certain words and discord links) has been enabled.", inline=False)
+        link_ban = "false"
+        config["LINK_BAN"] = link_ban
+        with open('config.json', 'w') as file:
+            json.dump(config, file, indent=4)
 
-        embed.set_footer(text=f"Made by mal023")       
-    else:
         # Construct the help message as an embed
         embed = discord.Embed(title="Disabled Automoderation", color=discord.Colour.red())
-        embed.add_field(name="Disabled Automoderation", value=f"Automoderation (blocks certain words and discord links) has been disabled.", inline=False)
+        embed.add_field(name="Disabled Automoderation", value="Automoderation (blocks certain words and discord links) has been disabled.", inline=False)
 
-        embed.set_footer(text=f"Made by mal023")
+        embed.set_footer(text="Made by mal023")
+    elif link_ban == "false":
+        link_ban = "true"
+        config["LINK_BAN"] = link_ban
+        with open('config.json', 'w') as file:
+            json.dump(config, file, indent=4)
+
+        # Construct the help message as an embed
+        embed = discord.Embed(title="Enabled Automoderation", color=discord.Colour.blue())
+        embed.add_field(name="Enabled Automoderation", value="Automoderation (blocks certain words and discord links) has been enabled.", inline=False)
+        
+        embed.set_footer(text="Made by mal023")
 
     # Send the help message as an ephemeral response
     await interaction.response.send_message(embed=embed)
