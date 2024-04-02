@@ -1,5 +1,7 @@
 # Discord Bot that monitors the CPU and MEMROY usage (percentage)
 
+## Programmed and tested on 3.12.2 - 29/3/24
+
 Its a simple bot that utilises psutil to monitor the CPU and MEMORY usage and send it back to the user.
 
 Because this is such a simple script I did the work for free, I would have used slash commands but the guy requested I did it using a prefix.
@@ -9,6 +11,14 @@ Because this is such a simple script I did the work for free, I would have used 
 `help` - Lists commands
 
 `usage` - Outputs the CPU and MEMORY Usage (Percentage)
+
+# Duration to program
+
+10 minutes
+
+# Price
+
+No cost, did this to showcase my skills
 
 # Join the discord or DM me
 
