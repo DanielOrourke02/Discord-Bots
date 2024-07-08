@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Daniel Jones</h1>
+<h1 align="center">Hi 👋, I'm Daniel O'Rourke</h1>
 <h3 align="center">🚀 A Passionate Python and C++ Developer 🚀</h3>
 <h3 align="center">Welcome To My Github Projects! 👋</h3>
 
@@ -6,7 +6,7 @@
   <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Demo" />
 </div>
 
-👨‍💻 All of my projects are available at [My Github](https://github.com/DanielJones02)
+👨‍💻 All of my projects are available at [My Github](https://github.com/DanielOrourke02)
 
 # All of my bots
 
@@ -24,9 +24,9 @@ I have seen some discord bot libraries in C++, but they have little to no docume
 
 # List of projects
 
-- [Auto-Moderation](https://github.com/DanielJones02/Discord-Bots/tree/main/Auto-Moderation)
-- [Monitor CPU & Memory](https://github.com/DanielJones02/Discord-Bots/tree/main/Monitor_CPU_Memory)
-- [Word Counter (involves database)](https://github.com/DanielJones02/Discord-Bots/tree/main/wordcount)
+- [Auto-Moderation](https://github.com/DanielOrourke02/Discord-Bots/tree/main/Auto-Moderation)
+- [Monitor CPU & Memory](https://github.com/DanielOrourke02/Discord-Bots/tree/main/Monitor_CPU_Memory)
+- [Word Counter (involves database)](https://github.com/DanielOrourke02/Discord-Bots/tree/main/wordcount)
 
 # Join the discord or DM me
 
@@ -37,10 +37,10 @@ I have seen some discord bot libraries in C++, but they have little to no docume
 </p>
 
 <div align="center">
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/Visual_Studio_Icon_2019.svg.png" width="48" height="48" alt="Visual Studio" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/python.png" alt="Python" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/html.png" alt="HTML" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/css.png" alt="CSS" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/C%2B%2B.png" alt="C++" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/linux.png" alt="Linux" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/Visual_Studio_Icon_2019.svg.png" width="48" height="48" alt="Visual Studio" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/python.png" alt="Python" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/html.png" alt="HTML" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/css.png" alt="CSS" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/C%2B%2B.png" alt="C++" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/linux.png" alt="Linux" />
 </div>
