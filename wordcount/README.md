@@ -27,6 +27,8 @@ In the end, its a simple bot that can interact with a database, (remove, add, re
 
 `/setwordc user:@example count:x` - Sets a users wordcount to x
 
+`/help` - lists all commands
+
 # Duration to program
 
 At my speed it was 1h and 30m or 2h
@@ -44,10 +46,10 @@ I did it for £5, but I got a £2 tip. (I am much more exspensive now)
 </p>
 
 <div align="center">
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/Visual_Studio_Icon_2019.svg.png" width="48" height="48" alt="Visual Studio" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/python.png" alt="Python" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/html.png" alt="HTML" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/css.png" alt="CSS" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/C%2B%2B.png" alt="C++" />
-  <img src="https://github.com/DanielJones02/Active-Projects/blob/main/images/linux.png" alt="Linux" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/Visual_Studio_Icon_2019.svg.png" width="48" height="48" alt="Visual Studio" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/python.png" alt="Python" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/html.png" alt="HTML" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/css.png" alt="CSS" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/C%2B%2B.png" alt="C++" />
+  <img src="https://github.com/DanielOrourke02/Active-Projects/blob/main/images/linux.png" alt="Linux" />
 </div>
