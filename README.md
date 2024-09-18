@@ -28,6 +28,10 @@ I have seen some discord bot libraries in C++, but they have little to no docume
 - [Monitor CPU & Memory](https://github.com/DanielOrourke02/Discord-Bots/tree/main/Monitor_CPU_Memory)
 - [Word Counter (involves database)](https://github.com/DanielOrourke02/Discord-Bots/tree/main/wordcount)
 
+# LARGER PROJECTS
+
+[HERE](https://github.com/DanielOrourke02/Echo)
+
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 </p>
