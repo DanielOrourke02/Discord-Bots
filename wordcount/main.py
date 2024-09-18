@@ -1,6 +1,7 @@
 # PROGRAMMED BY mal023
 
 from discord.ext.pages import Paginator
+from discord.ext import commands
 from discord import Option
 import discord
 import json
@@ -9,6 +10,8 @@ import time
 
 intents = discord.Intents.all()
 bot = discord.Bot(intents=intents)
+
+owner = 758818635690672178
 
 # Load the existing word count data from the JSON file, if it exists
 try:
@@ -214,78 +217,67 @@ async def getwordc_command(ctx: discord.ApplicationContext, user: discord.User=N
 
 @bot.slash_command(name="reset", description="Clear wordcount.json (admin only)")
 async def reset(ctx: discord.ApplicationContext):
-    # Check if the user invoking the command has Administrator permission
-    if not ctx.user.guild_permissions.administrator:
-        message = "You do not have permission to use this command."
+    if ctx.author.id != owner:
+        return
     else:
-        message = "Please run `/reset_confirm` to reset the global wordcount!"
+        # Construct the message as an embed with blue color
+        reset_embed = discord.Embed(
+            title="Reset Confirmation",
+            description="Please run `/reset_confirm` to reset the global wordcount!",
+            color=discord.Colour.blurple()
+        )
 
-    # Construct the message as an embed with blue color
-    reset_embed = discord.Embed(
-        title="Reset Confirmation",
-        description=message,
-        color=discord.Colour.blurple()
-    )
-
-    # Send the message as an ephemeral response
-    await ctx.respond(embed=reset_embed, ephemeral=True)
+        # Send the message as an ephemeral response
+        await ctx.respond(embed=reset_embed, ephemeral=True)
 
 
 @bot.slash_command(name="reset_confirm", description="Confirm the reset of wordcount.json (admin only)")
 async def reset_confirm(ctx: discord.ApplicationContext):
-    # Check if the user invoking the command has Administrator permission
-    if not ctx.user.guild_permissions.administrator:
-        message = "You do not have permission to use this command."
+    if ctx.author.id != owner:
+        return
     else:
-        # Reset the word count data by clearing the JSON file
         with open('wordcount.json', 'w') as file:
             file.write('{}')  # Write an empty JSON object
 
         message = "Global word count has been reset."
 
-    # Construct the message as an embed with blue color
-    reset_confirm_embed = discord.Embed(
-        title="Reset Confirmation",
-        description=message,
-        color=discord.Colour.blurple()
-    )
+        # Construct the message as an embed with blue color
+        reset_confirm_embed = discord.Embed(
+            title="Reset Confirmation",
+            description=message,
+            color=discord.Colour.blurple()
+        )
 
-    # Send the message as an ephemeral response
-    await ctx.respond(embed=reset_confirm_embed)
+        # Send the message as an ephemeral response
+        await ctx.respond(embed=reset_confirm_embed)
 
 
 @bot.slash_command(name="setwordc", description="Set a user's word count (admin only)")
 async def setwordc_command(ctx, user: discord.User, count: Option(int, description="Enter the users wordcount", required=True)): # type: ignore
-    # Check if the user invoking the command has Administrator permission
-    if not ctx.user.guild_permissions.administrator:
-        message = "You do not have permission to use this command."
+    if ctx.author.id != owner:
+        return
     else:
-        # Check if the user ID or count is empty
-        if user is None or count is None:
-            message = "Error: You need to ping the person you want to set their wordcount to and specify the count."
-        else:
-            # Load the word count data from the JSON file
-            try:
-                with open('wordcount.json', 'r') as file:
-                    wordcount_data = json.load(file)
-            except FileNotFoundError:
-                wordcount_data = {}
+        try:
+            with open('wordcount.json', 'r') as file:
+                wordcount_data = json.load(file)
+        except FileNotFoundError:
+            wordcount_data = {}
 
-            # Set the user's word count to the specified count
-            wordcount_data[str(user.id)] = count
+        # Set the user's word count to the specified count
+        wordcount_data[str(user.id)] = count
 
-            # Save the updated data back to the JSON file
-            with open('wordcount.json', 'w') as file:
-                json.dump(wordcount_data, file, indent=4)
+        # Save the updated data back to the JSON file
+        with open('wordcount.json', 'w') as file:
+            json.dump(wordcount_data, file, indent=4)
 
-            message = discord.Embed(
-                title="Word Count Set Confirmation",
-                description=f"{user.name}'s word count has been set to {count}.",
-                color=discord.Colour.blurple()
-            )
-    
-    # Send the message as an ephemeral response
-    await ctx.respond(embed=message)
+        message = discord.Embed(
+            title="Word Count Set Confirmation",
+            description=f"{user.name}'s word count has been set to {count}.",
+            color=discord.Colour.blurple()
+        )
+        
+        # Send the message as an ephemeral response
+        await ctx.respond(embed=message)
 
 
 bot.run(bot_token)
