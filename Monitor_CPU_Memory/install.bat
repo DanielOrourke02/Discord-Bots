@@ -1,4 +1,4 @@
 @echo off
-pip install git+https://github.com/Rapptz/discord.py
+pip install pycord
 pip isntall psutil
 pause

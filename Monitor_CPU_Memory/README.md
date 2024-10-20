@@ -4,7 +4,7 @@
 
 Its a simple bot that utilises psutil to monitor the CPU and MEMORY usage and send it back to the user.
 
-Because this is such a simple script I did the work for free, I would have used slash commands but the guy requested I did it using a prefix.
+Because this is such a simple script I did the work for free.
 
 `ping` - Check if the bot is online
 

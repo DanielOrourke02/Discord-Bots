@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import psutil  # For getting system usage information
+import psutil
 import json
 
 # Load configuration from JSON file
@@ -9,9 +9,8 @@ with open('config.json', 'r') as config_file:
 
 # Load variables from config.json
 token = config.get("BOT_TOKEN")
-prefix = config.get("PREFIX")
 
-bot = commands.Bot(command_prefix=prefix, intents=discord.Intents.all(), help_command=None)
+bot = discord.Bot(ntents=discord.Intents.default())
 
 
 @bot.event
@@ -22,39 +21,33 @@ async def on_ready():
 @bot.command()
 async def help(ctx):
     # Define help embed
-    embed = discord.Embed(title="Help", description="List of available commands:", color=0x00FFFF)  # Cyan color
-    embed.add_field(name=f"{prefix}help", value="Shows this message", inline=False)
-    embed.add_field(name=f"{prefix}ping", value="Shows bot latency", inline=False)
-    embed.add_field(name=f"{prefix}usage", value="Shows system CPU and memory usage", inline=False)
-    
-    embed.set_footer(text=f"Made by mal023")
+    embed = discord.Embed(title="Help", description="List of available commands:", color=0x00FFFF)
+    embed.add_field(name=f"`/help`", value="Shows this message", inline=False)
+    embed.add_field(name=f"`/ping`", value="Shows bot latency", inline=False)
+    embed.add_field(name=f"`/usage`", value="Shows system CPU and memory usage", inline=False)
 
     await ctx.send(embed=embed)
 
 
 @bot.command()
-async def ping(ctx):
+async def ping(ctx: discord.ApplicationContext):
     # Calculate bot latency
     latency = bot.latency * 1000  # Convert to milliseconds
-    embed = discord.Embed(title="Pong! 🏓", description=f"Latency: {latency:.2f}ms", color=0x00FFFF)  # Cyan color
-
-    embed.set_footer(text=f"Made by mal023")
+    embed = discord.Embed(title="Pong! 🏓", description=f"Latency: {latency:.2f}ms", color=0x00FFFF)
 
     await ctx.send(embed=embed)
 
 
 @bot.command()
-async def usage(ctx):
+async def usage(ctx: discord.ApplicationContext):
     # Get CPU and memory usage
     cpu_percent = psutil.cpu_percent(interval=1)
     memory = psutil.virtual_memory()
 
-    embed = discord.Embed(title="System Usage", color=0x00FFFF)  # Cyan color
+    embed = discord.Embed(title="System Usage", color=0x00FFFF)
     embed.add_field(name="CPU Usage", value=f"{cpu_percent}%", inline=False)
     embed.add_field(name="Memory Usage", value=f"Total: {humanize_bytes(memory.total)}, "
                                                 f"Available: {humanize_bytes(memory.available)}", inline=False)
-
-    embed.set_footer(text=f"Made by mal023")
 
     await ctx.send(embed=embed)
 
