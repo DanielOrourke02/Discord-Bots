@@ -18,7 +18,7 @@ async def on_ready():
     print(f'Ready and online! - {bot.user.display_name}')
 
 
-@bot.command()
+@bot.slash_command(name="help", description="Lists available commands")
 async def help(ctx):
     # Define help embed
     embed = discord.Embed(title="Help", description="List of available commands:", color=0x00FFFF)
@@ -29,7 +29,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 
-@bot.command()
+@bot.slash_command(name="ping", description="Check the bots latency")
 async def ping(ctx: discord.ApplicationContext):
     # Calculate bot latency
     latency = bot.latency * 1000  # Convert to milliseconds
@@ -38,7 +38,7 @@ async def ping(ctx: discord.ApplicationContext):
     await ctx.send(embed=embed)
 
 
-@bot.command()
+@bot.slash_command(name="usage", description="System CPU and Memory usage")
 async def usage(ctx: discord.ApplicationContext):
     # Get CPU and memory usage
     cpu_percent = psutil.cpu_percent(interval=1)
