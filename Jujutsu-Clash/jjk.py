@@ -11,12 +11,34 @@ ANIME_QUESTION_CHANNEL_ID = 1234
 intents = discord.Intents.default()
 intents.messages = True
 
-bot = commands.Bot(intents=intents)
+class AnimeBot(discord.Bot):
+    def __init__(self):
+        super().__init__(intents=intents)
+        self.start_time = datetime.datetime.utcnow()
+
+    def get_uptime(self):
+        delta = datetime.datetime.utcnow() - self.start_time
+        days = delta.days
+        hours, remainder = divmod(delta.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        return f"{days}d {hours}h {minutes}m {seconds}s"
+
+bot = AnimeBot()
 
 @bot.event
 async def on_ready():
-    print(f'{bot.user} has connected to Discord!')
+    print(f"╔{'═' * 50}╗")
+    print(f"║ {bot.user.name} is Ready!{' ' * (50 - len(bot.user.name) - 11)}║")
+    print(f"║ Serving {len(bot.guilds)} servers{' ' * (50 - len(str(len(bot.guilds))) - 15)}║")
+    print(f"╚{'═' * 50}╝")
+    
     post_anime_question.start()
+    await bot.change_presence(
+        activity=discord.Activity(
+            type=discord.ActivityType.watching,
+            name="anime | /help"
+        )
+    )
 
 @bot.event
 async def on_application_command_error(ctx, error: discord.DiscordException):
@@ -30,6 +52,7 @@ async def on_application_command_error(ctx, error: discord.DiscordException):
         raise error
 
 @bot.slash_command(name="ping", description="Check the bot's latency")
+@commands.cooldown(1, 4, commands.BucketType.user)
 async def ping(ctx: discord.ApplicationContext):
     latency = round(bot.latency * 1000)
     embed = discord.Embed(
@@ -41,37 +64,89 @@ async def ping(ctx: discord.ApplicationContext):
     
     await ctx.respond(embed=embed)
 
+@bot.slash_command(name="info", description="View bot information and statistics")
+@commands.cooldown(1, 4, commands.BucketType.user)
+async def info(ctx: discord.ApplicationContext):
+    embed = discord.Embed(
+        title="🤖 Bot Information",
+        description="Your friendly anime discussion bot!",
+        color=discord.Color.blue(),
+        timestamp=datetime.datetime.utcnow()
+    )
 
-@bot.slash_command(name="bug_report", description="Report a bug")
-@commands.cooldown(1, 360, commands.BucketType.user) 
-async def report_bug(ctx: discord.ApplicationContext, bug_description: discord.Option(str, description="Type your bug report", required=True)): # type: ignore
+    # General Stats
+    stats = f"""```yml
+Servers: {len(bot.guilds)}
+Users: {sum(g.member_count for g in bot.guilds)}
+Commands: {len(bot.application_commands)}
+Uptime: {bot.get_uptime()}```"""
+
+    embed.add_field(
+        name="📊 Statistics",
+        value=stats,
+        inline=False
+    )
+
+    # Features
+    features = """```yml
+• Daily Anime Questions
+• Bug Reporting System
+• Player Report System
+• Quick Response Times
+• Admin Controls```"""
+
+    embed.add_field(
+        name="✨ Features",
+        value=features,
+        inline=False
+    )
+
+    embed.set_footer(text="Thanks for using our bot! | /help for commands")
+    await ctx.respond(embed=embed)
+
+@bot.slash_command(name="bugreport", description="Report a bug")
+@commands.cooldown(1, 360, commands.BucketType.user)
+async def report_bug(ctx: discord.ApplicationContext, 
+                    bug_description: discord.Option(str, "Describe the bug in detail", required=True)): # type: ignore
     bug_report_channel = bot.get_channel(BUG_REPORT_CHANNEL_ID)
-    
+
     if not bug_report_channel:
-        embed = discord.Embed(
-            description="<a:denied:1300812792085090435> Bug report channel not found.",
-            color=discord.Color.red()
-        )
-        
+        embed = discord.Embed(description="<a:denied:1300812792085090435> Error: Report channel not found", color=discord.Color.red())
         await ctx.respond(embed=embed)
         return
 
-    embed = discord.Embed(
-        title="🛠️ New Bug Report",
-        description=bug_description,
-        color=discord.Color.red()
+    report_embed = discord.Embed(
+        title="🐛 Bug Report",
+        color=discord.Color.red(),
+        timestamp=datetime.datetime.utcnow()
     )
-    embed.set_footer(text=f"📮 Reported by: {ctx.author.name}#{ctx.author.discriminator}")
 
-    await bug_report_channel.send(embed=embed)
-    embed = discord.Embed(
-        description="<a:checked:1300790851944845377> Thank you for your report! Staff will review it shortly.",
+    report_embed.add_field(
+        name="Report Details",
+        value=f"""```yml
+Reporter: {ctx.author}
+User ID: {ctx.author.id}
+Server: {ctx.guild.name if ctx.guild else 'DM'}
+Time: {datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')}```""",
+        inline=False
+    )
+
+    report_embed.add_field(
+        name="Bug Description",
+        value=f"```{bug_description}```",
+        inline=False
+    )
+
+    await bug_report_channel.send(embed=report_embed)
+    
+    confirm_embed = discord.Embed(
+        description="<a:checked:1300790851944845377> Bug report submitted successfully!",
         color=discord.Color.green()
     )
-    await ctx.respond(embed=embed)
+    await ctx.respond(embed=confirm_embed)
 
 
-@bot.slash_command(name="player_report", description="Report a player")
+@bot.slash_command(name="playerreport", description="Report a player")
 @commands.cooldown(1, 360, commands.BucketType.user) 
 async def player_report(
     ctx: discord.ApplicationContext, 
@@ -244,20 +319,50 @@ async def send_daily_anime_question(ctx: discord.ApplicationContext):
 
 
 @bot.slash_command(name="help", description="List all available commands")
+@commands.cooldown(1, 4, commands.BucketType.user)
 async def help_command(ctx: discord.ApplicationContext):
     embed = discord.Embed(
-        title="Help Menu",
-        description="Here are the available commands:",
+        title="📚 Command Guide",
+        description="Here are all available commands:",
         color=discord.Color.blue()
     )
-    
-    embed.add_field(name="`/ping`", value="Check the bots latency.", inline=False)
-    embed.add_field(name="`/bug_report`", value="Report a bug.", inline=False)
-    embed.add_field(name="`/player_report`", value="Report a player.", inline=False)
-    embed.add_field(name="`/send_daily_anime_question`", value="Send a new daily anime question (Admin only).", inline=False)
-    embed.add_field(name="`/help`", value="List all available commands.", inline=False)
 
+    general_commands = """```yml
+/ping:
+  Description: Check bot latency
+  Usage: /ping
+
+/info:
+  Description: View bot information
+  Usage: /info
+
+/help:
+  Description: Show this menu
+  Usage: /help```"""
+
+    report_commands = """```yml
+/bug_report:
+  Description: Report a bug
+  Usage: /bug_report <description>
+  Cooldown: 360s
+
+/player_report:
+  Description: Report a player
+  Usage: /player_report <user> <reason>
+  Cooldown: 360s```"""
+
+    admin_commands = """```yml
+/send_daily_anime_question:
+  Description: Send anime question
+  Usage: /send_daily_anime_question
+  Permission: Administrator```"""
+
+    embed.add_field(name="🎮 General Commands", value=general_commands, inline=False)
+    embed.add_field(name="🛠️ Report Commands", value=report_commands, inline=False)
+    embed.add_field(name="⚡ Admin Commands", value=admin_commands, inline=False)
+
+    embed.set_footer(text="Need help? Contact server staff!")
     await ctx.respond(embed=embed)
 
 
-bot.run("YOU_BOT_TOKEN")
+bot.run("YOUR_BOT_TOKEN")
